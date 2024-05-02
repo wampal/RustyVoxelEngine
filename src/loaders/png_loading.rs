@@ -15,7 +15,7 @@ fn load_png(file: &str) -> Result<(Vec<u8>, i32, i32), image::error::ImageError>
     let dimensions = decoder.dimensions();
     let (width, height) = (dimensions.0 as i32, dimensions.1 as i32);
 
-    let mut buf = vec![0; width as usize * height as usize * 4]; // 4 - channels RGBA
+    let mut buf = vec![0; (width * height) as usize * 4]; // 4 - channels RGBA
 
     decoder.read_image(&mut buf)?;
 

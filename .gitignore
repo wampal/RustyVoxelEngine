@@ -15,3 +15,5 @@ Cargo.lock
 .idea/
 *.bin
 *.7z
+RVE_v0.8_win64.zip
+voxel_engine.exe

@@ -1,8 +1,9 @@
 use gl::types::*;
-
 pub struct Texture {
     id: GLuint,
+    #[allow(dead_code)]
     width: i32,
+    #[allow(dead_code)]
     height: i32,
 }
 
@@ -11,7 +12,7 @@ impl Texture {
         Self { id, width, height }
     }
 
-    pub fn from_data(data: *const u8, width: i32, height: i32) -> Self {
+    pub fn _from_data(data: *const u8, width: i32, height: i32) -> Self {
         let mut id: GLuint = 0;
         unsafe {
             gl::GenTextures(1, &mut id);
@@ -41,7 +42,7 @@ impl Texture {
         }
     }
 
-    pub fn reload(&self, data: *const u8) {
+    pub fn _reload(&self, data: *const u8) {
         unsafe {
             gl::BindTexture(gl::TEXTURE_2D, self.id);
             gl::TexImage2D(

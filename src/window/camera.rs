@@ -12,7 +12,7 @@ pub struct Camera {
 impl Camera {
     pub fn new(position: Vec3, fov: f32) -> Self {
         let rotation = Quat::IDENTITY;
-        let front = rotation.mul_vec3(Vec3::Z);
+        let front = rotation.mul_vec3(Vec3::NEG_Z);
         let right = rotation.mul_vec3(Vec3::X);
         let up = rotation.mul_vec3(Vec3::Y);
         
@@ -20,7 +20,7 @@ impl Camera {
     }
 
     fn update_vectors(&mut self) {
-        self.front = self.rotation.mul_vec3(Vec3::Z);
+        self.front = self.rotation.mul_vec3(Vec3::NEG_Z);
         self.right = self.rotation.mul_vec3(Vec3::X);
         self.up = self.rotation.mul_vec3(Vec3::Y);
     }

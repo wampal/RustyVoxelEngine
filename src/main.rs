@@ -170,14 +170,14 @@ fn main() {
             camera.position -= camera.front * _delta * speed;
         }
         if events.pressed(KEY_D) {
-            camera.position -= camera.right * _delta * speed;
+            camera.position += camera.right * _delta * speed;
         }
         if events.pressed(KEY_A) {
-            camera.position += camera.right * _delta * speed;
+            camera.position -= camera.right * _delta * speed;
         }
 
         if events.cursor_locked {
-            cam_y += events.delta_y / (window.height() as f32) * 2.0;
+            cam_y += -events.delta_y / (window.height() as f32) * 2.0;
             cam_x += -events.delta_x / (window.height() as f32) * 2.0;
 
             if cam_y < -89.0_f32.to_radians() {
